@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mind Map with Labeled Links</title>
+  <link rel="stylesheet" href="../static/css/visualize.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+<!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">RDFAIba</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/visualize">Visualize</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/test">Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="overlay" id="overlay"></div>
+    <div class="spinner" id="spinner"></div>
+    <!-- Dropdown menu and expand button for node selection and expansion -->
+    <form id="expandForm" action="/expand_node" method="POST">
+    <div id="controls">
+        <select id="nodeSelector" name="selected_node" class="form-control mb-2" style="width: 200px;">
+            <!-- Nodes will be dynamically populated here -->
+        </select>
+        <button type="submit" id="expandButton" class="btn btn-primary">Expand Node</button>
+    </div>
+</form>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="../static/js/mindmap.js"></script>
+  <script src="../static/js/expand.js"></script>
+  <script src="../static/js/script.js"></script>
+</body>
+</html>

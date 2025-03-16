@@ -1,0 +1,35 @@
+{
+  "name": "Václav Havel",
+  "children": [
+    {
+      "name": "hasOccupation",
+      "children": [
+        { "name": "Playwright" }
+      ]
+    },
+    {
+      "name": "hasNationality",
+      "children": [
+        { "name": "Czech" }
+      ]
+    },
+    {
+      "name": "isKnownFor",
+      "children": [
+        { "name": "Serving as President" }
+      ]
+    },
+    {
+      "name": "hasNotableWork",
+      "children": [
+        { "name": "The Power of the Powerless" }
+      ]
+    },
+    {
+      "name": "wasBorn",
+      "children": [
+        { "name": "1936-10-05" }
+      ]
+    }
+  ]
+}

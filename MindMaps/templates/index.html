@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RDFAIba</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+ <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">RDFAIba</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/visualize">Visualize</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/test">Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<main>
+    <div class="overlay" id="overlay"></div>
+    <div class="spinner" id="spinner"></div>
+    <h1>RDFAIba</h1>
+ <form id="userForm" method="post" action="/">
+        <textarea class="input_area" name="user_input" rows="10" cols="50" placeholder="Use this text area to talk to RDFAlba"></textarea><br><br>
+        <input type="hidden" name="mode" id="modeInput">
+        <input class="submitButton" name="action" type="submit" value="Generate JSON" onclick="setMode('json_ld')">
+        <input class="submitButton" name="action" type="submit" value="Generate Turtle" onclick="setMode('turtle')">
+        <input class="submitButton" name="action" type="submit" value="Plain text" onclick="setMode('plain')">
+        <input class="submitButton" name="action" type="submit" value="10 runs" onclick="setMode('experiment')">
+        <input class="submitButton" name="action" type="submit" value="evaluation" onclick="setMode('evaluation')">
+        <input class="submitButton" name="action" type="submit" value="Get Entity" onclick="setMode('entity')">
+        <input class="submitButton" name="action" type="submit" value="RAG attempt" onclick="setMode('rag')">
+ </form>
+    <script>
+        // Set the mode in the hidden input based on button clicked
+        function setMode(mode) {
+            document.getElementById('modeInput').value = mode;
+        }
+    </script>
+    {% if info_response%}
+        <h2>RDFAIba response</h2>
+        <pre>{{ info_response }}</pre>
+    {%endif%}
+    <a href="/visualize" class="btn btn-primary">Visualize</a>
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+<pre>{{ jsonld|safe }}</pre>

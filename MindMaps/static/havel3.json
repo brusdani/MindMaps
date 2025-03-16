@@ -1,0 +1,17 @@
+{
+  "nodes": [
+    { "id": "Václav Havel" },
+    { "id": "Playwright" },
+    { "id": "Czech" },
+    { "id": "Serving as President" },
+    { "id": "The Power of the Powerless" },
+    { "id": "1936-10-05" }
+  ],
+  "links": [
+    { "source": "Václav Havel", "target": "Playwright", "label": "hasOccupation" },
+    { "source": "Václav Havel", "target": "Czech", "label": "hasNationality" },
+    { "source": "Václav Havel", "target": "Serving as President", "label": "isKnownFor" },
+    { "source": "Václav Havel", "target": "The Power of the Powerless", "label": "hasNotableWork" },
+    { "source": "Václav Havel", "target": "1936-10-05", "label": "wasBorn" }
+  ]
+}

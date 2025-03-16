@@ -1,0 +1,17 @@
+{
+      "@context": {
+        "Person": "http://schema.org/Person",
+        "hasNationality": "http://schema.org/nationality",
+        "hasOccupation": "http://schema.org/occupation",
+        "isKnownFor": "http://schema.org/knownFor",
+        "hasNotableWork": "http://schema.org/worksFor",
+        "wasBorn": "http://schema.org/birthDate"
+      },
+      "@type": "Person",
+      "name": "Václav Havel",
+      "hasNationality": "Czech",
+      "hasOccupation": "Playwright",
+      "isKnownFor": "Serving as President",
+      "hasNotableWork": "The Power of the Powerless",
+      "wasBorn": "1936-10-05"
+    }

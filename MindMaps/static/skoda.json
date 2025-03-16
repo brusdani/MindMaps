@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "Company": "http://schema.org/Organization",
+    "operatesInIndustry": "http://schema.org/industry",
+    "wasFounded": "http://schema.org/founder",
+    "hasHeadquarters": "http://schema.org/address",
+    "hasCEO": "http://schema.org/Person",
+    "hasProduct": "http://schema.org/Product"
+  },
+  "@type": "Company",
+  "name": "Škoda Auto",
+  "operatesInIndustry": "Automotive",
+  "wasFounded": "1895",
+  "hasHeadquarters": "Mladá Boleslav, Czech Republic",
+  "hasCEO": "Thomas Schäfer",
+  "hasProduct": ["Octavia", "Superb", "Kodiaq"]
+}

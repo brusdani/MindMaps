@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Visualization</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .node {
+      fill: lightblue;
+      stroke: black;
+      stroke-width: 1.5px;
+    }
+
+    .link {
+      stroke: gray;
+      stroke-width: 1px;
+    }
+
+    text {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <svg width="800" height="600"></svg>
+
+  <script>
+    // Fetch the JSON-LD data from the file (replace with your file)
+    fetch('../static/data.json')
+      .then(response => response.json())
+      .then(jsonldData => {
+        const nodes = [
+          { id: jsonldData.name } // Central node (e.g., Václav Havel)
+        ];
+
+        const links = [];
+
+        // Extract attributes and create nodes and links dynamically
+        for (const key in jsonldData) {
+          if (key !== "@context" && key !== "@type" && key !== "name") {
+            const value = jsonldData[key];
+
+            if (Array.isArray(value)) {
+              // If the value is an array (like occupation), create a node for each item
+              value.forEach(item => {
+                nodes.push({ id: item });
+                links.push({
+                  source: jsonldData.name,
+                  target: item,
+                  predicate: key
+                });
+              });
+            } else if (typeof value === 'object') {
+              // If the value is a nested object (i.e., 1 level of nesting)
+              // Treat it as a relationship and create a link
+              for (const nestedKey in value) {
+                const nestedValue = value[nestedKey];
+                // Create a relationship, do not create a node for the property (e.g. "Sauron_name")
+                if (!nodes.some(node => node.id === nestedValue)) {
+                  nodes.push({ id: nestedValue });
+                }
+                links.push({
+                  source: jsonldData.name,
+                  target: nestedValue,
+                  predicate: nestedKey
+                });
+              }
+            } else {
+              // Simple value
+              // Only add the target if it's an actual entity or related entity
+              if (!nodes.some(node => node.id === value)) {
+                nodes.push({ id: value });
+              }
+              links.push({
+                source: jsonldData.name,
+                target: value,
+                predicate: key
+              });
+            }
+          }
+        }
+
+        // Create the SVG canvas
+        const svg = d3.select("svg");
+
+        // Set up the force simulation
+        const simulation = d3.forceSimulation(nodes)
+          .force("link", d3.forceLink(links).id(d => d.id).distance(150)) // Links between nodes
+          .force("charge", d3.forceManyBody().strength(-100)) // Avoid nodes getting too close
+          .force("center", d3.forceCenter(400, 300)) // Center of the canvas
+          .force("collide", d3.forceCollide().radius(50)) // Prevent nodes from overlapping
+          .alpha(0.3) // Lower alpha for smoother animation
+          .alphaDecay(0.05); // Slow down the alpha decay for a smoother transition
+
+        // Create the links (edges) between nodes
+        const link = svg.append("g")
+          .selectAll(".link")
+          .data(links)
+          .enter().append("line")
+          .attr("class", "link");
+
+        // Create the nodes (values)
+        const node = svg.append("g")
+          .selectAll(".node")
+          .data(nodes)
+          .enter().append("circle")
+          .attr("class", "node")
+          .attr("r", 20)
+          .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+
+        // Add labels to nodes
+        const label = svg.append("g")
+          .selectAll("text")
+          .data(nodes)
+          .enter().append("text")
+          .attr("x", 6)
+          .attr("y", 3)
+          .text(d => d.id);
+
+        // Add labels for the links (predicates)
+        const linkLabel = svg.append("g")
+          .selectAll(".linkLabel")
+          .data(links)
+          .enter().append("text")
+          .attr("class", "linkLabel")
+          .attr("x", 0)
+          .attr("y", 0)
+          .text(d => d.predicate);
+
+        // Update node and link positions in the simulation
+        simulation.on("tick", function () {
+          link
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+          node
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y);
+
+          label
+            .attr("x", d => d.x)
+            .attr("y", d => d.y);
+
+          linkLabel
+            .attr("x", d => (d.source.x + d.target.x) / 2)
+            .attr("y", d => (d.source.y + d.target.y) / 2);
+        });
+
+        // Dragging functions
+        function dragstarted(event, d) {
+          if (!event.active) simulation.alphaTarget(0.3).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+          d.fx = event.x;
+          d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+          if (!event.active) simulation.alphaTarget(0);
+          d.fx = null;
+          d.fy = null;
+        }
+      })
+      .catch(error => console.error('Error loading the JSON-LD data:', error));
+  </script>
+</body>
+</html>

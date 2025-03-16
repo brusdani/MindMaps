@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "City": "http://schema.org/Place",
+    "hasRiver": "http://schema.org/river",
+    "hasLandmark": "http://schema.org/landmark",
+    "numberOfInhabitants": "http://schema.org/population",
+    "isMayor": "http://schema.org/governmentOrganization"
+  },
+  "@type": "City",
+  "name": "Prague",
+  "isOnRiver": "Vltava",
+  "hasLandmark": ["Prague Castle", "Charles Bridge"],
+  "numberOfInhabitants": 1300000,
+  "isMayor": "Bohuslav Svoboda"
+}

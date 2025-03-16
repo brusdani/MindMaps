@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mind Map Visualization from JSON-LD</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .node circle {
+      fill: #fff;
+      stroke: steelblue;
+      stroke-width: 3px;
+    }
+    .node text {
+      font: 12px sans-serif;
+    }
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+<script>
+  // Fetch JSON-LD data from an external file called data.json.
+  d3.json("../static/havel2.json").then(function(jsonldData) {
+
+    // Normalization function to ensure consistent structure.
+    function normalizeNode(node) {
+      // Ensure each node has a name, description, and a children array.
+      const normalized = {
+        name: node.name || "Unnamed",
+        description: node.description || "",
+        children: []
+      };
+
+      if (node.children) {
+        // Wrap in an array if not already.
+        if (!Array.isArray(node.children)) {
+          node.children = [node.children];
+        }
+        normalized.children = node.children.map(child => normalizeNode(child));
+      }
+      return normalized;
+    }
+
+    // Create the normalized root.
+    const normalizedData = {
+      name: jsonldData.name || "Root",
+      description: jsonldData.description || "",
+      children: (jsonldData.children || []).map(child => normalizeNode(child))
+    };
+
+    // Dimensions and margins for the visualization.
+    const width = 800;
+    const height = 600;
+    const margin = { top: 20, right: 90, bottom: 30, left: 90 };
+
+    // Append the SVG element to the body.
+    const svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+      .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Create a D3 tree layout.
+    const treemap = d3.tree().size([height - margin.top - margin.bottom, width - margin.left - margin.right]);
+
+    // Create a hierarchy from the normalized data.
+    const root = d3.hierarchy(normalizedData, d => d.children);
+
+    // Generate the tree layout.
+    const treeData = treemap(root);
+
+    // Extract nodes and links.
+    const nodes = treeData.descendants();
+    const links = treeData.links();
+
+    // Create links (paths) between nodes.
+    svg.selectAll(".link")
+      .data(links)
+      .enter().append("path")
+        .attr("class", "link")
+        .attr("d", d3.linkHorizontal()
+            .x(d => d.y)
+            .y(d => d.x));
+
+    // Create groups for each node.
+    const node = svg.selectAll(".node")
+      .data(nodes)
+      .enter().append("g")
+        .attr("class", "node")
+        .attr("transform", d => `translate(${d.y},${d.x})`);
+
+    // Append circles for each node.
+    node.append("circle")
+      .attr("r", 10);
+
+    // Append text labels for each node.
+    node.append("text")
+      .attr("dy", ".35em")
+      .attr("x", d => d.children ? -13 : 13)
+      .style("text-anchor", d => d.children ? "end" : "start")
+      .text(d => d.data.name);
+
+  }).catch(function(error) {
+    console.error("Error loading or processing data:", error);
+  });
+</script>
+</body>
+</html>
