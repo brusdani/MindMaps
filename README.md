@@ -13,7 +13,7 @@ maps1 and maps2 contains the generated mind maps in json format in the web appli
 
 
 # Tutorial
-This part includes step-by-step guide on how to run the prototype in PyCharm IDE.
+This part includes step-by-step guide on how to run the prototype in PyCharm IDE. It requires to have Python 3.10+ installed
 
 1.) Download the repository (code -> download zip archive)
 
@@ -24,9 +24,21 @@ This part includes step-by-step guide on how to run the prototype in PyCharm IDE
 ![image](https://github.com/user-attachments/assets/6f171e0a-ee8f-4fb9-a4cd-47c8aa4f4b2c)
 
 
-
 3.) Copy paste the MindMap folder into new project
 
-4.) Create .env file in the MindMap directory and set up your OpenAI API key.
+![image](https://github.com/user-attachments/assets/d145d15d-eddd-4668-a164-cac1c8353500)
 
+
+4.) In the 4**app.py** file. Install all required packages (dependencies).
+
+![image](https://github.com/user-attachments/assets/a443aac7-a0d0-44bf-89ff-d3a571733750)
+
+
+5.) Create .env file in the **MindMap** directory and set up your OpenAI API key.
+
+![image](https://github.com/user-attachments/assets/fae529c1-85e3-4299-8099-86cc73e02247)
+
+
+
+6.) That's it, Happy mind mapping!
 
