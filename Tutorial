@@ -1,0 +1,7 @@
+This file contains step by step guide on how to run the web application prototype in PyCharm IDE.
+
+1.) Download the repository
+2.) Create a new project in PyCharm - this step is important, because this repository does not include venv folder, which includes interpreter.
+
+3.) Copy paste the MindMap folder into new project
+4.)
