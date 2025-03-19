@@ -21,7 +21,8 @@ This part includes step-by-step guide on how to run the prototype in PyCharm IDE
 
 ![image](https://github.com/user-attachments/assets/e0ff4818-64e5-4abf-b4d5-cdfae5dd3ca8)
 
-![image](https://github.com/user-attachments/assets/6f171e0a-ee8f-4fb9-a4cd-47c8aa4f4b2c)
+![image](https://github.com/user-attachments/assets/c244838d-bf58-483a-9781-8d323f9a5e10)
+
 
 
 3.) Copy paste the MindMap folder into new project
