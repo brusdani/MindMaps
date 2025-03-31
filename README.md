@@ -11,8 +11,20 @@ If you want to run the notebooks in your environment you'll need to download the
 maps1 and maps2 contains the generated mind maps in json format in the web applications that were used for evaluation - 100+100maps
 
 
+# Tutorial - Windows Command Line
+This part includes step-by-step guide on how to run the prototype in Windows command line. It requires to have Python 3.10+ installed
 
-# Tutorial
+1.) Download the repository (code -> download zip archive)
+
+2.) Copy the folder with the prototype project, the one that is called MindMaps.
+
+3.) Navigate to MindMaps folder and create virtual environment within it.
+
+4.) Once the environment is created run it using command env\Scripts\activate
+
+5.) Install the dependencies. They're in requirements.txt file. Run the command pip install -r /path/to/requirements.txt
+
+# Tutorial - IDE
 This part includes step-by-step guide on how to run the prototype in PyCharm IDE. It requires to have Python 3.10+ installed
 
 1.) Download the repository (code -> download zip archive)
