@@ -1,0 +1,8 @@
+openai
+flask
+requests
+rdflib
+os
+json
+re
+dotenv
