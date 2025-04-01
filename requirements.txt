@@ -2,7 +2,4 @@ openai
 flask
 requests
 rdflib
-os
-json
-re
-dotenv
+python-dotenv
