@@ -18,11 +18,27 @@ This part includes step-by-step guide on how to run the prototype in Windows com
 
 2.) Copy the folder with the prototype project, the one that is called MindMaps.
 
-3.) Navigate to MindMaps folder and create virtual environment within it.
+3.) Navigate to MindMaps folder and create virtual environment within it. Using "*py -m venv venv*" command
+![image](https://github.com/user-attachments/assets/3ecda94a-7d78-432a-bd6c-72a2fbd8eb35)
 
-4.) Once the environment is created run it using command env\Scripts\activate
 
-5.) Install the dependencies. They're in requirements.txt file. Run the command pip install -r /path/to/requirements.txt
+4.) Once the environment is created run it using command "*venv\Scripts\activate*"
+![image](https://github.com/user-attachments/assets/d74eb178-f9f6-4ca0-99ea-d5e59d0c7089)
+
+5.) Install the dependencies. They're in requirements.txt file. Run the command "*pip install -r requirements.txt*"
+![image](https://github.com/user-attachments/assets/fc661653-5561-46d1-8c13-0c4b6ead35d0)
+
+6.) Create .env file and setup your OpenAI API key
+
+![image](https://github.com/user-attachments/assets/819355e9-671a-465c-a066-f97ea20dc115)
+![image](https://github.com/user-attachments/assets/65261d46-fb1a-4453-8a28-7e23231a5b39)
+
+7.)Set app.py as the main file of the Flask application and run the app. It's gonna run development server on localhost.
+
+Commands are *"set FLASK_APP=app.py*" and "*flask run*"
+![image](https://github.com/user-attachments/assets/24cf2488-a9ac-452f-ae3c-ff3d15ecb5b7)
+8.) Happy mind mapping
+
 
 # Tutorial - IDE
 This part includes step-by-step guide on how to run the prototype in PyCharm IDE. It requires to have Python 3.10+ installed
