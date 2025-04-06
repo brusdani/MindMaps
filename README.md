@@ -12,11 +12,16 @@ maps1 and maps2 contains the generated mind maps in json format in the web appli
 
 
 # Tutorial - Windows Command Line
-Commands Summary
+Commands Summary:
+
 py -m venv venv
+
 venv\Scripts\activate
+
 pip install -r requirements.txt
+
 set FLASK_APP=app.py
+
 flask run
 
 This part includes step-by-step guide on how to run the prototype in Windows command line. It requires to have Python 3.10+ installed
