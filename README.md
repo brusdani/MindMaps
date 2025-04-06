@@ -27,6 +27,11 @@ pip install -r requirements.txt
 # Set the Flask app environment variable
 set FLASK_APP=app.py
 
+# Create .env file
+type nul > .env
+notepad .env
+OPENAI_API_KEY="your_api_key"
+
 # Run the Flask application
 flask run
 
