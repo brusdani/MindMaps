@@ -12,17 +12,25 @@ maps1 and maps2 contains the generated mind maps in json format in the web appli
 
 
 # Tutorial - Windows Command Line
-Commands Summary:
+### Commands Summary:
 
+```bash
+# Create a virtual environment
 py -m venv venv
 
+# Activate the virtual environment
 venv\Scripts\activate
 
+# Install required packages
 pip install -r requirements.txt
 
+# Set the Flask app environment variable
 set FLASK_APP=app.py
 
+# Run the Flask application
 flask run
+
+```
 
 This part includes step-by-step guide on how to run the prototype in Windows command line. It requires to have Python 3.10+ installed
 
