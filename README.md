@@ -3,7 +3,7 @@ Bachelor thesis: Automatic Mind Map generation
 
 The repository contains multiple directories.
 
-*MindMaps* is the experimental version of web application - this prototype was used for all evaluation experiments during thesis.
+*MindMaps* is the experimental version of web application - this prototype was used for all data formats experiments and all evaluation experiments during thesis.
 
 *MindMapsApp* is the "presentational" version of the application, that could be used by real users.
 
