@@ -1,0 +1,25 @@
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: 0.6;
+  stroke-width: 1.5px;
+}
+
+.link-label {
+  font: 10px sans-serif;
+  fill: #555;
+}
+#expandForm {
+    position: absolute;
+    top: 200px; /* Adjust this value to move it down */
+    left: 1000px; /* Adjust this value to move it towards the right */
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RDFAIba</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+ <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">RDFAIba</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/visualize">Visualize</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/latest_map">Latest Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<main>
+    <div class="overlay" id="overlay"></div>
+    <div class="spinner" id="spinner"></div>
+    <h1>Mind map generator</h1>
+<form id="userForm" method="post" action="/">
+    <textarea class="input_area" name="user_input" rows="10" cols="50" placeholder="Enter an ENTITY you wish to generate a mindmap for or a text"></textarea><br><br>
+
+    <input type="hidden" name="mode" id="modeInput">
+    <div class="checkboxDiv">
+        <!-- RAG Checkbox -->
+        <label for="ragCheckbox">Use RAG for generation</label>
+        <input type="checkbox" id="ragCheckbox"><br><br>
+    </div>
+    <div class="buttonDiv">
+        <input class="submitButton" name="action" type="submit" value="Generate Mind Map for entity" onclick="setModeFromButton('json')">
+        <input class="submitButton" name="action" type="submit" value="Generate Mind Map from text" onclick="setModeFromButton('text')">
+    </div>
+</form>
+    {% if info_response%}
+        <h2>RDFAIba response</h2>
+        <pre>{{ info_response }}</pre>
+    {%endif%}
+    <a href="/visualize" class="btn visualize_button">Visualize</a>
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+ <script src="{{ url_for('static', filename='js/mode.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

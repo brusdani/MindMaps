@@ -1,0 +1,161 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Form Styles */
+main {
+    background-color: #fff;
+    padding: 20px; /* uniform padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;            /* Stretches to full container width */
+    max-width: 800px;
+    margin: 40px auto;      /* Centers the form horizontally with vertical margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Center all content horizontally */
+}
+
+.input_area {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+/* Updated Submit Button Styles */
+.submitButton {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    /* Remove fixed width/margin so the container controls layout */
+    flex: 1 0 auto;
+    min-width: 150px; /* Ensures the button doesn’t shrink too much */
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+}
+
+/* Button Group Container */
+.buttonDiv {
+    display: flex;
+    flex-wrap: wrap;         /* Allows buttons to wrap on narrower viewports */
+    justify-content: center; /* Centers the buttons */
+    gap: 20px;               /* Provides consistent space between buttons */
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Styling for the Checkbox and Label */
+.checkboxDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the checkbox and label horizontally */
+    margin-bottom: 20px;
+}
+
+.checkboxDiv label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.checkboxDiv input[type="checkbox"] {
+    transform: scale(1.3);  /* Makes the checkbox bigger */
+    cursor: pointer;
+}
+
+/* Spinner Styles */
+.spinner {
+    display: none;
+    width: 100px;
+    height: 100px;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Overlay Styles */
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Visualize Button Styles */
+.visualize_button {
+    margin-top: 20px;
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.visualize_button:hover {
+    background-color: #0056b3;
+}
+
+/* Latest Button Styles */
+.latest_button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: 2px solid #4CAF50;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.latest_button:hover {
+    background-color: #45a049; /* Darker green */
+    transform: scale(1.1);
+}
+
+/* Form Container Style */
+#userForm {
+    width: 100%;
+}

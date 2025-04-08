@@ -1,0 +1,13 @@
+@prefix : <http://example.org/vaclav_havel#> .
+
+:Václav_Havel a :Person ;
+    :hasName "Václav Havel" ;
+    :hasBirthDate "1936-10-05" ;
+    :hasDeathDate "2011-12-18" ;
+    :hasOccupation :Playwright, :Politician, :Philosopher ;
+    :hasNationality "Czech" ;
+    :hasMajorWorks :The_Garden_Party, :The_Trial, :The_Obstructed_Heart ;
+    :hasPoliticalRole :President_of_Czechoslovakia, :President_of_the_Czech_Republic ;
+    :hasInfluence :Dissident_Movement, :Velvet_Revolution ;
+    :hasPhilosophy :Human_Rights, :Democracy, :Nonviolent_Resistance ;
+    :hasLegacy :Civic_Society, :Cultural_Impact, :Political_Thought .
