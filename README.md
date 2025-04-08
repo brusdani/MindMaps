@@ -54,7 +54,7 @@ flask run
 
 ```
 
-This part includes step-by-step guide on how to run the prototype in Windows command line with pictures. It requires to have Python 3.10+ installed
+# This part includes step-by-step guide on how to run the prototype in Windows command line with pictures. It requires to have Python 3.10+ installed
 
 1.) Download the repository (code -> download zip archive)
 
