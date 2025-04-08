@@ -3,7 +3,9 @@ Bachelor thesis: Automatic Mind Map generation
 
 The repository contains multiple directories.
 
-*MindMaps* is the main web application
+*MindMaps* is the experimental version of web application - this prototype was used for all evaluation experiments during thesis.
+
+*MindMapsApp* is the "presentational" version of the application, that could be used by real users.
 
 *Jupyter notebooks* folder contains Jupyter notebooks that were used in evaluation part of thesis. There are both original notebooks and html versions
 If you want to run the notebooks in your environment you'll need to download the embeddings from *embeddings* directory as they're the input files for jupyter notebooks.
@@ -14,34 +16,49 @@ maps1 and maps2 contains the generated mind maps in json format in the web appli
 # Tutorial - Windows Command Line
 ### Commands Summary:
 
+First download the repository (code -> download zip archive)
+
+Then navigate to *MindMapsApp* or *MindMaps* folder, depending if you want to try the presentational or experimental version of the prototype 
+
+Create a virtual environment
 ```bash
-# Create a virtual environment
 py -m venv venv
+```
 
-# Activate the virtual environment
+Activate the virtual environment
+
+```bash
 venv\Scripts\activate
+```
 
-# Install required packages
+Install required packages
+```bash
 pip install -r requirements.txt
+```
 
-# Set the Flask app environment variable
+Set the Flask app environment variable
+```bash
 set FLASK_APP=app.py
+```
 
-# Create .env file
+Create .env file
+```bash
 type nul > .env
 notepad .env
 OPENAI_API_KEY="your_api_key"
+```
 
-# Run the Flask application
+Run the Flask application
+```bash
 flask run
 
 ```
 
-This part includes step-by-step guide on how to run the prototype in Windows command line. It requires to have Python 3.10+ installed
+This part includes step-by-step guide on how to run the prototype in Windows command line with pictures. It requires to have Python 3.10+ installed
 
 1.) Download the repository (code -> download zip archive)
 
-2.) Copy the folder with the prototype project, the one that is called MindMaps.
+2.) Copy the folder with the prototype project, the one that is called MindMaps or MindMapsApp.
 
 3.) Navigate to MindMaps folder and create virtual environment within it. Using "*py -m venv venv*" command
 ![image](https://github.com/user-attachments/assets/3ecda94a-7d78-432a-bd6c-72a2fbd8eb35)
