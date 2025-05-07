@@ -404,8 +404,8 @@ def expand_mindmap(jsonData, concept):
         
         Please provide the enhanced JSON data with these additions while maintaining the original format and return complete data, including the initial data.
         """
-        temperature = 1.0
-        top_p = 1.0
+        temperature = 0.0
+        top_p = 0.0
         response = get_gpt_response(prompt, temperature, top_p, system_instruction)
         return response
 
